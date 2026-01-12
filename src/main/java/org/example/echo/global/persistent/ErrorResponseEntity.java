@@ -1,4 +1,4 @@
-package org.example.echo.global.p;
+package org.example.echo.global.persistent;
 
 import lombok.Data;
 import org.example.echo.global.exception.ErrorCode;
