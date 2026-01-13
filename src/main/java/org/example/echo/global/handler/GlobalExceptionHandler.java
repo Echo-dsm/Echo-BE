@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.echo.global.exception.CustomException;
 import org.example.echo.global.exception.ErrorCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -35,6 +36,15 @@ public class GlobalExceptionHandler {
 
         ErrorResponse response = new ErrorResponse(code.getStatus().value(), code.getMessage());
         return ResponseEntity.status(code.getStatus()).body(response);
+    }
+
+    // 잘못된 인자값 잡기
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        String message = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
+        ErrorResponse response = new ErrorResponse(ErrorCode.BOARD_LENGTH_OVER.getStatus().value(), message);
+
+        return new ResponseEntity<>(response, ErrorCode.BOARD_LENGTH_OVER.getStatus());
     }
 
     @Getter

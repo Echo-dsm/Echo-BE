@@ -1,4 +1,4 @@
-package org.example.echo.domain.BroadCast.exception;
+package org.example.echo.domain.Broadcast.exception;
 
 import org.example.echo.global.exception.CustomException;
 import org.example.echo.global.exception.ErrorCode;
