@@ -1,8 +1,8 @@
-package org.example.echo.domain.BroadCast.schedule;
+package org.example.echo.domain.Broadcast.schedule;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.echo.domain.BroadCast.entity.repository.BroadCastRepository;
+import org.example.echo.domain.Broadcast.entity.repository.BroadcastRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class BroadCastResetScheduler {
-    private final BroadCastRepository noticeBoardRepository;
+public class BroadcastResetScheduler {
+    private final BroadcastRepository noticeBoardRepository;
 
     @Scheduled(cron = "0 0 0 * * *", zone = "Asia/Seoul")
     @Transactional

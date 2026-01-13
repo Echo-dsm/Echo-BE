@@ -1,4 +1,4 @@
-package org.example.echo.domain.BroadCast.entity;
+package org.example.echo.domain.Broadcast.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-public class BroadCast {
+public class Broadcast {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,7 +25,7 @@ public class BroadCast {
     private LocalDateTime createdAt;
 
     @Builder
-    public BroadCast(String correctionMessage, String originalMessage) {
+    public Broadcast(String correctionMessage, String originalMessage) {
         this.correctionMessage = correctionMessage;
         this.originalMessage = originalMessage;
         this.createdAt = LocalDateTime.now();

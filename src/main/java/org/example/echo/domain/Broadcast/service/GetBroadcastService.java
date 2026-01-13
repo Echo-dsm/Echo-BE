@@ -1,8 +1,8 @@
-package org.example.echo.domain.BroadCast.service;
+package org.example.echo.domain.Broadcast.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.echo.domain.BroadCast.entity.BroadCast;
-import org.example.echo.domain.BroadCast.entity.repository.BroadCastRepository;
+import org.example.echo.domain.Broadcast.entity.Broadcast;
+import org.example.echo.domain.Broadcast.entity.repository.BroadcastRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
@@ -14,12 +14,12 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class GetBroadCastService {
-    private final BroadCastRepository repo;
+public class GetBroadcastService {
+    private final BroadcastRepository repo;
 
-    public List<BroadCast> getBroadCast(int page) {
+    public List<Broadcast> getBroadcast(int page) {
         Pageable pageable = PageRequest.of(page, 20, Sort.by("createdAt").descending());
-        Page<BroadCast> broadCastPage = repo.findAll(pageable);
-        return broadCastPage.getContent();
+        Page<Broadcast> broadcastPage = repo.findAll(pageable);
+        return broadcastPage.getContent();
     }
 }
