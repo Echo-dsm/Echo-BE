@@ -10,29 +10,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+
     @Bean
     public OpenAPI openAPI() {
-        String jwt = "JWT";
-        SecurityRequirement securityRequirement = new SecurityRequirement().addList(jwt);
-
-        Components components = new Components()
-                .addSecuritySchemes(jwt, new SecurityScheme()
-                        .name(jwt)
-                        .type(SecurityScheme.Type.HTTP)
-                        .scheme("bearer")
-                        .bearerFormat("JWT")
-
-                );
         return new OpenAPI()
-                .components(components)
-                .info(apiInfo())        // ✅ 사용
-                .addSecurityItem(securityRequirement);
+                .info(apiInfo());
     }
 
-    private Info apiInfo() {                // ✅ 추가!
+    private Info apiInfo() {
         return new Info()
-                .title("Shop API")      // {} 대신 실제 이름
-                .description("Shop API Swagger UI")
+                .title("Echo API")
+                .description("Echo API Swagger UI")
                 .version("1.0.0");
     }
 }
