@@ -23,9 +23,10 @@ public class BroadcastController {
                 .body("add BroadCast successfully");
     }
 
-    @GetMapping("/getBroadCast")
-    public ResponseEntity<?> getBroadCast(@RequestParam(name="page", defaultValue = "0") int page) {
+    @GetMapping("/broadcast")
+    public ResponseEntity<?> getBroadCast(@RequestParam(name="page", defaultValue = "0") int page,
+                                          @RequestHeader("API_KEY") String apiKey) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(getBoardService.getBroadcast(page));
+                .body(getBoardService.getBroadcast(page, apiKey));
     }
 }
