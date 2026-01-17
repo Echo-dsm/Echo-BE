@@ -23,6 +23,12 @@ public class BroadcastController {
                 .body("add Broadcast successfully");
     }
 
+    @GetMapping("/get500")
+    public ResponseEntity<?> get500() {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("니 500떳음 ㅋ");
+    }
+
     @GetMapping("/broadcast")
     public ResponseEntity<?> broadcast(@RequestParam(name="page", defaultValue = "0") int page) {
         return ResponseEntity.status(HttpStatus.OK)

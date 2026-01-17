@@ -2,7 +2,9 @@ package org.example.echo.global.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.echo.global.exception.CustomException;
+import org.example.echo.global.exception.ErrorCode;
 import org.example.echo.global.exception.ErrorResponseEntity;
+import org.example.echo.global.webhook.DiscordWebhookClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
